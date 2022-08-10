@@ -1,7 +1,10 @@
 import whiteLogo from "../images/whiteLogo.png";
 import colorLogo from "../images/colorLogo.png";
 
-const Nav = ({ authToken, minimal }) => {
+const Nav = ({ authToken, minimal, setShowModal, showModal }) => {
+  const handleClick = () => {
+    setShowModal(true);
+  };
 
   return (
     <nav>
@@ -15,6 +18,8 @@ const Nav = ({ authToken, minimal }) => {
       {!authToken && !minimal && (
         <button
           className="nav-button"
+          onClick={handleClick}
+          disabled={showModal}
         >
           Log in
         </button>
